@@ -27,7 +27,12 @@ INC_DIR			=	include/ get_next_line/ ft_printfd/
 LIBFT_DIR		=	$(LIB_DIR)libft/
 
 # Source Files
-SRC				=	$(LIBFT_SRC) $(GNL_SRC) $(PRINTF_SRC) $(CUSTOM_SRC)
+SRC				=	$(addprefix src/, \
+					$(CUSTOM) \
+					$(PRINTFD) \
+					$(GNL) \
+					$(LIBFT) \
+					)
 
 # Object Files
 OBJ				=	$(patsubst %.c,$(OBJ_DIR)%.o,$(SRC))
@@ -37,8 +42,7 @@ IFLAG			=	$(addprefix -I, $(INC_DIR))
 LFLAG			=	$(addprefix -L, )
 
 # Source Files List
-CUSTOM_DIR		=	custom/
-CUSTOM_SRC		=	$(addprefix $(CUSTOM_DIR)/, \
+CUSTOM			=	$(addprefix custom/, \
 					ft_abs.c \
 					ft_atoi_base.c \
 					ft_atol.c \
@@ -53,21 +57,18 @@ CUSTOM_SRC		=	$(addprefix $(CUSTOM_DIR)/, \
 					ft_vfree.c \
 					)
 
-PRINTF_DIR		=	ft_printfd/
-PRINTF_SRC		=	$(addprefix $(PRINTF_DIR)/, \
+PRINTFD			=	$(addprefix ft_printfd/, \
 					ft_printfd_cspct.c \
 					ft_printfd.c \
 					ft_putnbr_base.c \
 					)
 
-GNL_DIR			=	get_next_line/
-GNL_SRC			=	$(addprefix $(GNL_DIR)/, \
+GNL				=	$(addprefix get_next_line/, \
 					get_next_line_utils.c \
 					get_next_line.c \
 					)
 
-LIBFT_DIR		=	libft/
-LIBFT_SRC		=	$(addprefix $(LIBFT_DIR)/, \
+LIBFT			=	$(addprefix libft/, \
 					ft_atoi.c \
 					ft_bzero.c \
 					ft_calloc.c \
