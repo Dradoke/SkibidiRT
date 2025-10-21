@@ -2,6 +2,11 @@
 # define MINIRT_H
 //••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
+#define WIDTH 1000
+#define HEIGHT 500
+
+//••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
 # include <unistd.h>		// read, write, close
 # include <fcntl.h>			// open
 # include <stdlib.h>		// malloc, free, exit
