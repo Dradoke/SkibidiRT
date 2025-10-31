@@ -10,11 +10,12 @@
 # include <errno.h>			// errno (perror/strerror)
 # include <math.h>			// math functions
 
-# include "MLX42/MLX42.h"	// MinilibX
+// # include "lib/MLX42/MLX42.h"	// MinilibX
 # include "libft.h"			// LibFT
 
 # include "prototype.h"
 # include "struct.h"
+# include "ris.h"
 
 //••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 #endif

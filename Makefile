@@ -22,7 +22,6 @@ SRC				=	$(addprefix src/, \
 					)
 
 UTILS			=	$(addprefix utils/, \
-					minirt_utils.c \
 					)
 
 #•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
@@ -34,19 +33,19 @@ OBJ				=	$(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 IFLAG			=	$(addprefix -I, \
 					$(INC_DIR) \
 					$(LIBFT_DIR)/include \
-					$(MLX42_DIR)/include \
 					)
+# 					$(MLX42_DIR)/include \
 
 #•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
 # Library Path & File
 LIBFT_DIR		=	$(LIB_DIR)libft/
 LIBFT			=	$(LIBFT_DIR)libft.a
-MLX42_DIR		=	$(LIB_DIR)MLX42/
-MLX42			=	$(MLX42_DIR)/build/libmlx42.a
+# MLX42_DIR		=	$(LIB_DIR)MLX42/
+# MLX42			=	$(MLX42_DIR)/build/libmlx42.a
 
 # Library Dependencies for MLX42
-MLX_DEPS		=	-ldl -lglfw -pthread -lm
+MLX_DEPS		=	-ldl -lglfw -pthread
 
 #•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
@@ -62,8 +61,10 @@ $(MLX42):
 	@cmake $(MLX42_DIR) -B $(MLX42_DIR)/build && make -C $(MLX42_DIR)/build -j4
 
 # Main Target
-$(NAME): $(OBJ) $(LIBFT) $(MLX42)
-	@$(CC) $(CFLAG) $(OBJ) $(LIBFT) $(MLX42) $(MLX_DEPS) -o $(NAME)
+# $(MLX42)
+$(NAME): $(OBJ) $(LIBFT)
+	@$(CC) $(CFLAG) $(OBJ) $(LIBFT) -o $(NAME) -lm
+# 	$(MLX42) $(MLX_DEPS)
 	@echo "Welcome $@ ! 🤩🤙"
 
 # Object File Compilation Rule

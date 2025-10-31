@@ -29,4 +29,18 @@ typedef struct s_hsba
 }	t_hsba;
 
 //••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+typedef struct	s_sphere
+{
+	t_vec3			center;
+	double			radius;
+	unsigned int	color;
+}				t_sphere;
+
+typedef struct	s_plane
+{
+	t_vec3	center;
+	t_vec3	norm_vector;
+	t_rgb	color;
+}				t_plane;
 #endif
